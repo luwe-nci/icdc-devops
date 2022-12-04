@@ -179,9 +179,8 @@
     chdir: "{{workspace}}/{{ project }}-frontend"
     warn: false
   loop:
-    - npm set progress=false
-    - npm install --silent
-    - npm run build --silent
+    - npm install 
+    - npm run build
 
 - name: move dist from frontend to temp build
   copy: 
