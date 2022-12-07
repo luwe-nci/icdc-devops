@@ -112,7 +112,7 @@
       pull: yes
       nocache: yes
     name: "{{ project }}-backend"
-    tag: "{{bento_api_version}}-{{build_number}}"
+    tag: "{{bento_api_version}}.{{build_number}}"
     push: no
     force_source: yes
     source: build
@@ -121,7 +121,7 @@
   block:
     - name: run trivy scanner
       #command: "trivy image --exit-code 1 --severity HIGH,CRITICAL {{ project }}-backend:{{bento_api_version}}-{{build_number}}"
-      command: "trivy image --severity HIGH,CRITICAL {{ project }}-backend:{{bento_api_version}}-{{build_number}}"
+      command: "trivy image --severity HIGH,CRITICAL {{ project }}-backend:{{bento_api_version}}.{{build_number}}"
       register: backend_vuln
   always:
     - name: echo backend vulnerabilities
