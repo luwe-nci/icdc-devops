@@ -18,6 +18,7 @@ RUN sh -c "envsubst '\$PORT'  < /etc/nginx/conf.d/configfile.template > /etc/ngi
 
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 COPY ./nginx-entrypoint.sh /
+COPY ./inject.template.js /usr/share/nginx/html
 
 EXPOSE 80
 
