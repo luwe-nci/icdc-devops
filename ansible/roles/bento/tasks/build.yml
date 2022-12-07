@@ -199,7 +199,7 @@
 - name: copy env to dist
   copy:
     src: inject.template.js
-    dest: "{{workspace}}/build/dist/inject.template.js"
+    dest: "{{workspace}}/build/inject.template.js"
     mode: 0755
 
 
