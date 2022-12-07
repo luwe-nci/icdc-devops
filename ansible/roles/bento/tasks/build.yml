@@ -132,7 +132,7 @@
   docker_image:
     name: "{{ project }}-backend"
     repository: "{{ ecr_repo }}/{{ project }}-backend"
-    tag: "{{bento_api_version}}-{{build_number}}"
+    tag: "{{bento_api_version}}.{{build_number}}"
     force_tag: yes
     push: yes
     source: local
