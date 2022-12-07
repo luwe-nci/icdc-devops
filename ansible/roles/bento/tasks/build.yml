@@ -173,18 +173,25 @@
     dest: "{{workspace}}/build/nginx-entrypoint.sh"
     mode: 0755
 
-- name: run npm install in {{workspace}}/{{ project }}-frontend/
-  command: "{{item}}"
-  args:
-    chdir: "{{workspace}}/{{ project }}-frontend"
-    warn: false
-  loop:
-    - npm install 
-    - npm run build
+# - name: run npm install in {{workspace}}/{{ project }}-frontend/
+#   command: "{{item}}"
+#   args:
+#     chdir: "{{workspace}}/{{ project }}-frontend"
+#     warn: false
+#   loop:
+#     - npm install 
+#     - npm run build
 
-- name: move dist from frontend to temp build
+# - name: move dist from frontend to temp build
+#   copy: 
+#     src: "{{workspace}}/{{ project }}-frontend/dist" 
+#     dest: "{{workspace}}/build" 
+#     remote_src: yes 
+#     directory_mode: yes
+
+- name: copy frontend to temp build
   copy: 
-    src: "{{workspace}}/{{ project }}-frontend/dist" 
+    src: "{{workspace}}/{{ project }}-frontend/" 
     dest: "{{workspace}}/build" 
     remote_src: yes 
     directory_mode: yes
