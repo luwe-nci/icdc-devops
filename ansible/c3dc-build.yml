@@ -9,7 +9,7 @@
     - name: This is a build stage
       include_role:
         name: bento
-        tasks_from: build
+        tasks_from: build_backend
       vars:
         redis_host:
           dev: "c3dc-dev-redis-cluster.l5vrvc.clustercfg.use1.cache.amazonaws.com"
