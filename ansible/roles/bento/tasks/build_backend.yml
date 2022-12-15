@@ -91,16 +91,16 @@
     dest: "{{workspace}}/src/main/resources/yaml/{{ test_queries_file }}"
   when: test_queries.stat.exists
 
-- name: build springboot code
-  command: mvn package -DskipTests
-  args:
-    chdir: "{{workspace}}"
+# - name: build springboot code
+#   command: mvn package -DskipTests
+#   args:
+#     chdir: "{{workspace}}"
 
-- name: copy Bento-0.0.1.war to ROOT.war
-  copy:
-    remote_src: yes
-    src: "{{workspace}}/target/Bento-0.0.1.war"
-    dest: "{{workspace}}/target/ROOT.war"
+# - name: copy Bento-0.0.1.war to ROOT.war
+#   copy:
+#     remote_src: yes
+#     src: "{{workspace}}/target/Bento-0.0.1.war"
+#     dest: "{{workspace}}/target/ROOT.war"
 
 - name: build {{ project }}-backend image
   docker_image:
@@ -108,7 +108,7 @@
       ECR_REPO: "{{ecr_repo}}"
     build:
       path: "{{workspace}}"
-      dockerfile: "{{workspace}}/playbooks/docker/dockerfiles/backend-dockerfile"
+      dockerfile: "{{workspace}}/playbooks/docker/dockerfiles/backend-new-dockerfile"
       pull: yes
       nocache: yes
     name: "{{ project }}-backend"
