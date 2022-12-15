@@ -1,3 +1,5 @@
+ARG ECR_REPO
+
 FROM maven as build
 
 WORKDIR /usr/src/app
@@ -8,7 +10,6 @@ RUN mv ./target/Bento-0.0.1.war ./target/ROOT.war
 
 
 #make sure bento-backend:release is your ecr repo.
-ARG ECR_REPO
 
 FROM ${ECR_REPO}/bento-backend:release
 MAINTAINER icdc devops team
