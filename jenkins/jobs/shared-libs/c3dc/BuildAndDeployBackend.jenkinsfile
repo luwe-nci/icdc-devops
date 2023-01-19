@@ -2,7 +2,7 @@
 buildAndDeploy(
     label: "cicd_microservice",
     parameterName: "BackendTag",
-    codeRepoUrl: "https://github.com/CBIIT/bento-RI-backend",
+    codeRepoUrl: "https://github.com/CBIIT/bento-backend",
     playbookRepoUrl: "https://github.com/luwe-nci/icdc-devops",
     playbookRepoBranch: "master",
     checkoutDirectory: "workspace",
